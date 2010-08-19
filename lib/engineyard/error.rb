@@ -1,5 +1,11 @@
 module EY
   class Error < RuntimeError
+    def initialize(*)
+      EY.bloops.error
+
+      super
+    end
+
     def ambiguous(type, name, matches)
       pretty_names = matches.map {|x| "'#{x}'"}.join(', ')
       "The name '#{name}' is ambiguous; it matches all of the following #{type} names: #{pretty_names}.\n" +

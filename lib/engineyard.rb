@@ -3,6 +3,7 @@ module EY
   require 'engineyard/version'
 
   autoload :API,        'engineyard/api'
+  autoload :Blooper,    'engineyard/blooper'
   autoload :Collection, 'engineyard/collection'
   autoload :Config,     'engineyard/config'
   autoload :Error,      'engineyard/error'
@@ -25,5 +26,8 @@ module EY
       @config ||= EY::Config.new
     end
 
+    def bloops
+      Blooper
+    end
   end
 end
